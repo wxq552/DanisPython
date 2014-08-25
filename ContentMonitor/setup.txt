@@ -1,0 +1,7 @@
+安装MySQLdb 
+安装PIL图像处理库
+安装phpserizilier
+安装DBUtils数据库连接池
+安装smallGFW敏感词检测扩展库
+
+
