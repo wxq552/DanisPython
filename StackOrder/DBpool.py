@@ -11,5 +11,5 @@ def InitDB():
     return dbpool
 
 def getRedis():
-    r = redis.StrictRedis(host='', port=6379, db=0)
+    r = redis.StrictRedis(host='192.168.100.1', port=6379, db=0)
     return r
