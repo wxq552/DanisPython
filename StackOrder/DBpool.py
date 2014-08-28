@@ -5,7 +5,7 @@ from DBUtils.PooledDB import PooledDB
 config = {}
 execfile(os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.py"), config)
 def InitDB():
-    dbpool = PooledDB(creator=MySQLdb,mincached=100,maxusage=100,host=config['HOST'],
+    dbpool = PooledDB(creator=MySQLdb,mincached=10,maxusage=10,host=config['HOST'],
                       user=config['USERNAME'],passwd=config['PASSWORD'],db=config['DBNAME'],
                       charset=config['CHARSET'],port=config['PORT'])
     return dbpool

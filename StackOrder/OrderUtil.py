@@ -5,7 +5,7 @@ import os
 
 class OrderUtil():
     def __init__(self,redis):
-        logging.basicConfig(filename=os.path.join(os.getcwd(),"logs/log.txt"),filemode="w",
+        logging.basicConfig(filename=os.path.join(os.getcwd(),"logs/log.txt"),filemode="a",
                     level=logging.DEBUG,format = '%(asctime)s - %(levelname)s: %(message)s')
         self.log = logging.getLogger("root")
         self.redis = redis
@@ -21,12 +21,16 @@ class OrderUtil():
                 stock_dict = json.loads(stock_snap)
                 lastpx = int(stock_dict["lastpx"])
                 preclosepx = int(stock_dict["preclosepx"])
-                #print lastpx
-                #print preclosepx
+                print lastpx
+                print preclosepx
                 if lastpx/10000.0 >= float(preclosepx*1.1/10000):
                     self.log.debug("股票:"+str(order[1])+"涨停,暂时不能买入")
                 else:
-                    return order[0]
+                    price_list = self.redis.hgetall("rsh_stock_snap_sec@stockcode:"+str(order[1])).values()
+                    useList = list(reversed(price_list))
+                    for price in useList[0:121]:
+                        if price <= order[0]/100.0:
+                            return order[0]
         else:
             self.log.debug(str(order[0])+":挂单卖出,股票代码："+str(order[1]))
             if self.redis.hget("rsh_stock_subspended",str(order[1])):
@@ -37,12 +41,17 @@ class OrderUtil():
                 stock_dict = json.loads(stock_snap)
                 lastpx = int(stock_dict["lastpx"])
                 preclosepx = int(stock_dict["preclosepx"])
-                #print lastpx
-                #print preclosepx
+                print lastpx
+                print preclosepx
                 if lastpx/10000.0 >= float(preclosepx*0.9/10000):
                     self.log.debug("股票:"+str(order[1])+"跌停,暂时不能卖出")
                 else:
-                    return order[0]
+                    price_list = self.redis.hgetall("rsh_stock_snap_sec@stockcode:"+str(order[1])).values()
+                    useList = list(reversed(price_list))
+                    for price in useList[0:121]:
+                        if price >= order[0]/100.0:
+                            return order[0]
+                
                 
                 
     
