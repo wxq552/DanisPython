@@ -1,0 +1,87 @@
+    {% extends "base.html" %}  
+     {% block content %} 
+        <div id="subbanner">
+            <img src="/static/site/nav_imgs/1111281148289.jpg" width="960" height="180"></div>
+        <div class="main_wrapper">
+            <div class="sidebar">
+                <!--box1-->
+                <div class="sidebar_box">
+                    <h2 class="tit">
+                         关于我们</h2>
+                    <div class="sidebar_box_list">
+                        <ul>
+                            
+                                    <li><a href="{% url comapp.views1.getinfo 'intro' %}" id="rptypeNews_ctl00_aname"><span>
+                                        公司简介</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'institute' %}" id="rptypeNews_ctl01_aname"><span>
+                                        组织机构</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'range' %}" id="rptypeNews_ctl02_aname"><span>
+                                        经营范围</span></a></li>
+                                     <li><a href="{% url comapp.views1.getinfo 'culture' %}" id="rptypeNews_ctl03_aname"><span>
+                                        企业文化</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'glory' %}" id="rptypeNews_ctl04_aname"><span>
+                                        荣誉资质</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'staff' %}" id="rptypeNews_ctl05_aname"><span>
+                                        员工天地</span></a></li>
+                                
+                        </ul>
+                    </div>
+                    <div class="box_b">
+                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <!--right-->
+                <div class="sub_content">
+                    <h3>
+                        <div class="loc">
+                            <a href="{% url comapp.views.index %}">首页</a>><a href="{% url comapp.views1.getinfo %}">关于我们</a>>
+                            <a class="green" href="{% url comapp.views1.getinfo info.type %}">{{title}}</a></div>
+                       {{title}}</h3>
+                    <div class="content">
+                        <ul class="sub_newslist3">
+                            <li>
+                                <h2>
+                                    {{info.title}}<span>{{info.post_time}}</span></h2>
+                            </li>
+                        </ul>
+                        <div class="txt_style news_detial">
+                            {{info.content}}
+                                    
+<p style="text-align: center">
+	{% load imgurl %}
+	{% if info.image %}
+	<img alt="" src="/static/site/big/{{info.image.path|imgurl}}" style="width: 582px; height: 420px" />
+	{% endif %}
+	</p>
+                            <h1 style="text-align: right; height: 30px; line-height: 30px;" class="back">
+                                <a href="javascript:history.go(-1);"></a>
+                            </h1>
+                        </div>
+                        <div class="page_ct">
+                            <ul>
+                            	{% if preinfo %}
+                                <li>上一篇：<a href="{%url comapp.views1.aboutdta preinfo.0 %}" id="pre" title="{{preinfo.1}}">{{preinfo.1}}</a></li>
+                                {% endif %}
+                                {% if aftinfo %}
+                                <li>下一篇：<a href="{%url comapp.views1.aboutdta aftinfo.0 %}" id="next" title="{{aftinfo.1}}">{{aftinfo.1}}</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                        <div class="aboutus_print">
+                            <div class="print_left">
+                                <a href="#"></a>
+                            </div>
+                            <div class="print_right">
+                                <a href="javascript:window.print();"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}  

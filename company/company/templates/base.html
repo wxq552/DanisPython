@@ -1,0 +1,174 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if IE 7 ]>
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie7">
+<![endif]-->
+<!--[if IE 8 ]>
+            <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie8">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]>
+                <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js">
+<![endif]-->
+<head><title>
+	深圳年年丰粮油有限公司</title><meta name="Keywords" content="深圳年年丰粮油有限公司" /><meta name="Description" content="深圳年年丰粮油有限公司" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="keywords" content="keywords" />
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /><link rel="stylesheet" type="text/css" href="/static/css/index.css" />
+	<link type="text/css" rel="stylesheet" href="/static/css/style.css" />
+<!--[if lte IE 6]>
+<script src="js/iepng.js" type="text/javascript"></script>
+<script type="text/javascript">
+   EvPNG.fix('div, span, img, li, a');  
+</script>
+<![endif]-->
+<!--[if IE]><link rel="stylesheet" type="text/css" media="all" href="css/ie.css" />
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/static/js/MSClass.js"></script>
+<SCRIPT src="/static/js/common.js" type=text/javascript></SCRIPT>
+<script language="javascript">
+    function qiehuan(num) {
+        for (var id = 0; id <= 9; id++) {
+            if (id == num) {
+                document.getElementById("top1_qh_con" + id).style.display = "block";
+                document.getElementById("top1_mynav" + id).className = "selected";
+            }
+            else {
+                document.getElementById("top1_qh_con" + id).style.display = "none";
+                document.getElementById("top1_mynav" + id).className = "";
+            }
+        }
+    }
+
+
+</script>
+</head>  
+<body class="fb-body">
+    
+ 
+<header id="branding">
+	
+<div id="top">
+<h1><a href="index.aspx" title=""><img src="/static/images/logo.gif" alt=""> </a></h1>
+<div id="cust">
+		<ul>
+			<li><img src="/static/images/tel_top.gif" width="176" height="30"></li>
+		</ul>
+	</div>
+    </div>
+<div id="menu">
+   <nav id="sitenav" class="">
+           <ul>
+			<li><a href="{% url comapp.views.index %}" id="top1_mynav0" onmouseover="javascript:qiehuan(0)" class="selected">首页</a></li>
+			<li><a href="{% url comapp.views1.getinfo %}" id="top1_mynav1" onmouseover="javascript:qiehuan(1)">关于我们</a></li>
+			<li><a href="{% url comapp.views2.products %}" id="top1_mynav2" onmouseover="javascript:qiehuan(2)">产品展示</a></li>
+			<li><a href="{% url comapp.views1.getnews %}" id="top1_mynav3" onmouseover="javascript:qiehuan(3)">新闻动态</a></li>
+            <li><a href="industry.aspx" id="top1_mynav4" onmouseover="javascript:qiehuan(4)">产业介绍</a></li>
+            <li><a href="service.aspx" id="top1_mynav5" onmouseover="javascript:qiehuan(5)">服务中心</a></li>
+            <li><a href="jobs.aspx" id="top1_mynav6" onmouseover="javascript:qiehuan(6)">人力资源</a></li>
+            <li><a href="contact.aspx" id="top1_mynav7" onmouseover="javascript:qiehuan(7)">联系我们</a></li>
+		</ul>
+        </nav>
+        <div id="menu_con"><div id="top1_qh_con0" style="DISPLAY: block"> </div> 
+       <div id="top1_qh_con1" style="DISPLAY: none"><UL>
+           
+                            <li><a href="{% url comapp.views1.getinfo 'intro' %}" id="top1_rpAbout_ctl00_aname"><span>公司简介</span></a></LI><LI id="top1_rpAbout_ctl00_li_about" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getinfo 'institute' %}" id="top1_rpAbout_ctl01_aname"><span>组织机构</span></a></LI><LI id="top1_rpAbout_ctl01_li_about" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getinfo 'range' %}" id="top1_rpAbout_ctl02_aname"><span>经营范围</span></a></LI><LI id="top1_rpAbout_ctl02_li_about" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getinfo 'culture' %}" id="top1_rpAbout_ctl03_aname"><span>企业文化</span></a></LI><LI id="top1_rpAbout_ctl03_li_about" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getinfo 'glory' %}" id="top1_rpAbout_ctl04_aname"><span>荣誉资质</span></a></LI><LI id="top1_rpAbout_ctl04_li_about" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getinfo 'staff' %}" id="top1_rpAbout_ctl05_aname"><span>员工天地</span></a></LI><LI id="top1_rpAbout_ctl05_li_about" class=""></LI>    
+                        
+      </UL></div> 
+      <div id="top1_qh_con2" style="DISPLAY: none"><ul>
+           
+                            {% for series in  product_series %}
+                                 <li><a href="{% url comapp.views2.products series.id %}" id="top1_rpProduct_ctl00_aname"><span>{{series.name}}</span></a></li>
+                                
+                            {% endfor %}
+           
+                         
+                        
+    </UL></div> 
+   <div id="top1_qh_con3" style="DISPLAY: none"><ul>
+           
+                            <li><a href="{% url comapp.views1.getnews 'company' %}" id="top1_rpNews_ctl00_aname"><span>公司新闻</span></a></LI><LI id="top1_rpNews_ctl00_li_news" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getnews 'job' %}" id="top1_rpNews_ctl01_aname"><span>行业新闻</span></a></LI><LI id="top1_rpNews_ctl01_li_news" class="menu_line2"></LI>    
+                        
+                            <li><a href="{% url comapp.views1.getnews 'qihuo' %}" id="top1_rpNews_ctl02_aname"><span>外盘期货</span></a></LI><LI id="top1_rpNews_ctl02_li_news" class=""></LI>    
+                        
+   </UL></div> 
+   <div id="top1_qh_con4" style="DISPLAY: none"><UL>
+           
+                            <li><a href="industry.aspx?id=13" id="top1_rpIndustry_ctl00_aname"><span>惠州市年年丰粮油有限公司</span></a></LI><LI id="top1_rpIndustry_ctl00_li_indus" class="menu_line2"></LI>    
+                        
+                            <li><a href="industry.aspx?id=14" id="top1_rpIndustry_ctl01_aname"><span>汕头年年丰油脂有限公司</span></a></LI><LI id="top1_rpIndustry_ctl01_li_indus" class="menu_line2"></LI>    
+                        
+                            <li><a href="industry.aspx?id=15" id="top1_rpIndustry_ctl02_aname"><span>广西东马年年丰粮油有限公司</span></a></LI><LI id="top1_rpIndustry_ctl02_li_indus" class="menu_line2"></LI>    
+                        
+                            <li><a href="industry.aspx?id=34" id="top1_rpIndustry_ctl03_aname"><span>惠州市年年顺粮油有限公司</span></a></LI><LI id="top1_rpIndustry_ctl03_li_indus" class=""></LI>    
+                        
+   </UL></div>
+   <div id="top1_qh_con5" style="DISPLAY: none"><UL>
+           
+                            <li><a href="service.aspx?id=16" id="top1_rpServer_ctl00_aname"><span>服务政策</span></a></LI><LI id="top1_rpServer_ctl00_li_service" class="menu_line2"></LI>    
+                        
+                            <li><a href="Net.aspx?id=17" id="top1_rpServer_ctl01_aname"><span>营销网络</span></a></LI><LI id="top1_rpServer_ctl01_li_service" class="menu_line2"></LI>    
+                        
+                            <li><a href="knowledge.aspx?id=18" id="top1_rpServer_ctl02_aname"><span>食用油小知识</span></a></LI><LI id="top1_rpServer_ctl02_li_service" class="menu_line2"></LI>    
+                        
+                            <li><a href="message.aspx?id=19" id="top1_rpServer_ctl03_aname"><span>客户留言</span></a></LI><LI id="top1_rpServer_ctl03_li_service" class=""></LI>    
+                        
+   </UL></div>
+   <div id="top1_qh_con6" style="DISPLAY: none"><UL>
+         
+                            <li><a href="jobs.aspx?id=20" id="top1_rpJob_ctl00_aname"><span>董事长致辞</span></a></LI><LI id="top1_rpJob_ctl00_li_job" class="menu_line2"></LI>    
+                        
+                            <li><a href="jobs.aspx?id=21" id="top1_rpJob_ctl01_aname"><span>人才战略</span></a></LI><LI id="top1_rpJob_ctl01_li_job" class="menu_line2"></LI>    
+                        
+                            <li><a href="ApplyJobs.aspx?id=22" id="top1_rpJob_ctl02_aname"><span>招聘信息</span></a></LI><LI id="top1_rpJob_ctl02_li_job" class=""></LI>    
+                        
+    </UL></div>
+    <div id="top1_qh_con7" style="DISPLAY: none"> <UL>
+         
+                            <li><a href="contact.aspx?id=23" id="top1_rpContact_ctl00_aname"><span>联系我们</span></a></LI><LI id="top1_rpContact_ctl00_li_contact" class="menu_line2"></LI>    
+                        
+                            <li><a href="contact.aspx?id=24" id="top1_rpContact_ctl01_aname"><span>电子地图</span></a></LI><LI id="top1_rpContact_ctl01_li_contact" class="menu_line2"></LI>    
+                        
+                            <li><a href="contact.aspx?id=25" id="top1_rpContact_ctl02_aname"><span>公司邮局</span></a></LI><LI id="top1_rpContact_ctl02_li_contact" class=""></LI>    
+                        
+    </UL></div>
+</div>
+     </div>
+ </header>
+   <div id="container" class=" narrowContainer">
+ {% block content %}   
+    内容  
+ {% endblock %}
+  </div>
+ <div id="siteinfowrapper">
+        
+
+<footer id="siteinfo">
+                            <ul>
+		<li><a href="about.aspx">集团简介</a></li>
+		<li><a href="news.aspx">最新动态</a></li>
+		<li><a href="ApplyJobs.aspx?id=22">人才招聘</a></li>
+		<li><a href="Net.aspx?id=17">营销网络</a></li>
+        <li><a href="contact.aspx">联系我们</a></li>
+	</ul>
+      <span>&copy;2011 <strong>深圳市年年丰粮油有限公司</strong>版权所有, All Rights Reserved. </span>      </footer>
+
+        <!-- / site information -->
+    </div>
+ 
+</body>
+</html> 

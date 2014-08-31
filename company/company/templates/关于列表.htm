@@ -1,0 +1,107 @@
+{% extends "base.html" %}  
+      
+{% block content %}  
+        <div id="subbanner">
+            <img src="/static/site/nav_imgs/1111281148289.jpg" width="960" height="180"></div>
+        <div class="main_wrapper">
+            <div class="sidebar">
+                <!--box1-->
+                <div class="sidebar_box">
+                    <h2 class="tit">
+                        关于我们</h2>
+                    <div class="sidebar_box_list">
+                        <ul>
+                              <li><a href="{% url comapp.views1.getinfo 'intro' %}" id="rptypeNews_ctl00_aname"><span>
+                                        公司简介</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'institute' %}" id="rptypeNews_ctl01_aname"><span>
+                                        组织机构</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'range' %}" id="rptypeNews_ctl02_aname"><span>
+                                        经营范围</span></a></li>
+                                     <li><a href="{% url comapp.views1.getinfo 'culture' %}" id="rptypeNews_ctl03_aname"><span>
+                                        企业文化</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'glory' %}" id="rptypeNews_ctl04_aname"><span>
+                                        荣誉资质</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getinfo 'staff' %}" id="rptypeNews_ctl05_aname"><span>
+                                        员工天地</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="box_b">
+                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <!--right-->
+                <div class="sub_content">
+                    <h3>
+                        <div class="loc">
+                            <a href="{% url comapp.views.index %}">首页</a>><a href="{% url comapp.views1.getinfo %}">关于我们</a>><a class="green" href="{% url comapp.views1.getinfo infotype %}">{{ title }}</a></div>
+                        {{title}}</h3>
+                    <div class="content">
+                        <ul class="sub_newslist1">
+                                {% load imgurl %}
+                                {% for info in info_list %}
+                                      <li>
+                                      	
+                                <a href="{% url comapp.views1.aboutdta info.id %}">
+                                	 
+                                    {% if info.thumb %}
+                                	<img src="/static/site/small/{{info.thumb.path|imgurl}}"  title="{{info.title}}"/>
+                                    {% endif %}
+                                	 
+                                </a><h2>
+                                    <a href="{% url comapp.views1.aboutdta info.id %}" title="{{info.title}}">{{ info.title }}</a></h2>
+                                <p>
+                                    <a href="{% url comapp.views1.aboutdta info.id %}" title="{{info.title}}" style="color: orange">
+                                      {{info.content|slice:"30"}}...
+                                    	
+                                    </a></p>
+                                      </li>
+                                  {% endfor %}  
+                              
+                             
+                              
+                                
+                                  
+                                
+                        </ul>
+                        <ul class="sub_newslist2">
+                        	
+                        	        {% for info1 in list_items.object_list %}
+                                       <li>
+                                        <h2>
+                                            <a href='{% url comapp.views1.aboutdta info1.id %}' title="{{info1.title}}">{{info1.title}}
+                                             </a><span>{{info1.post_time}}</span></h2>
+                                        <p>
+                                        	{{info1.content|slice:"40"}}
+                                          <a href='{% url comapp.views1.aboutdta info1.id %}' title="{{info1.title}}" class="more">
+                                          	Read More》</a></p>
+                                    </li>
+                                   {% endfor %}
+                                   
+                                
+                                
+                        </ul> 
+                        <div class="clear">
+                        </div>
+                        <div id="divpages" class="pageList">&nbsp;<a class="disabled" href="{% url comapp.views1.getinfo infotype,1 %}">首页</a>
+                        	{% if list_items.has_previous %} 
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views1.getinfo infotype,list_items.previous_page_number %}">上一页</a>
+                        	{% endif %}
+                        	<span class="current">  
+                            第{{ list_items.number }}页，共{{ list_items.paginator.num_pages }}页  
+                            </span> 
+                        	{% if list_items.has_next %} 
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views1.getinfo infotype,list_items.next_page_number %}">下一页</a>
+                        	{% endif %}
+                        	<a class="disabled" href="{% url comapp.views1.getinfo infotype,list_items.paginator.num_pages %}">尾页</a>&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+    
+{% endblock %}  

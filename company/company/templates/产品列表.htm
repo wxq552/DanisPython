@@ -1,0 +1,92 @@
+    {% extends "base.html" %}  
+     {% block content %} 
+   
+        <div id="subbanner">
+            <img src="/static/site/nav_imgs/1111281148289.jpg" width="960" height="180"></div>
+        <div class="main_wrapper">
+            <div class="sidebar">
+                <!--box1-->
+                <div class="sidebar_box">
+                    <h2 class="tit">
+                        产品展示</h2>
+                    <div class="sidebar_box_list">
+                        <ul>
+                        	{% for series in product_series %}
+                        	  <li>
+                        	  	  <a href="{% url comapp.views2.products series.id %}" id="rptypeNews_ctl00_aname">
+                        	  	   <span>{{series.name}}</span>
+                        	  	  </a></li>
+                        
+                        	{% endfor %}
+                      
+                        </ul>
+                    </div>
+                    <div class="box_b">
+                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <!--right-->
+                <div class="sub_content">
+                    <h3>
+                        <div class="loc">
+                            <a href="{% url comapp.views.index %}">首页</a>><a href="{% url comapp.views2.products %}">产品展示</a>><a class="green" href="{% url comapp.views2.products current_series.id %}">{{title}}</a></div>
+                       {{title}}</h3>
+                    <div class="content">
+                        
+                        	  {% load imgurl %}
+                        	  {% for pro in item_list.object_list %}
+                        	   
+                        	    
+                                      	
+                                <a href="/infodetail/" style="display: inline-block;margin-right: 2px;margin-bottom:4px; border: 1px solid #dadada;padding: 4px;padding-bottom: 0px;">
+                                	<div>
+                                	 <img width="160" height="160" src="/static/site/small/{{pro.thumb.path|imgurl}}" />
+                                     <div style="text-align: center;">{{pro.name}}</div>
+                                    </div>
+                                </a>
+                                      
+                        	    
+                        	  {% endfor %}                        
+                                
+                                  
+                                
+                      
+                       <!-- <ul class="sub_newslist2">
+                        	
+                        	      
+                                       <li>
+                                        <h2>
+                                            <a href='/infodetail/{{info1.id}}/' title="{{info1.title}}">
+                                             </a><span>身上</span></h2>
+                                        <p>
+                                        	
+                                          <a href='/infodetail/{{info1.id}}/' title="{{info1.title}}" class="more">
+                                          	Read More》</a></p>
+                                    </li>
+                                  
+                                   
+                                
+                                
+                        </ul> -->
+                        <div class="clear">
+                        </div>
+                        <div id="divpages" class="pageList">&nbsp;<a class="disabled" href="{% url comapp.views2.products current_series.id,1 %}">首页</a>
+                        	{% if item_list.has_previous %}
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views2.products current_series.id,item_list.previous_page_number %}">上一页</a>
+                        	{% endif %}
+                        	<span class="current">  
+                            第{{ item_list.number }}页，共{{ item_list.paginator.num_pages }}页  
+                            </span>
+                        	{% if item_list.has_next %}
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views2.products current_series.id,item_list.next_page_number %}">下一页</a>&nbsp;&nbsp;
+                        	{% endif %}
+                        	<a class="disabled" href="{% url comapp.views2.products current_series.id,item_list.paginator.num_pages %}">尾页</a>&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+    
+
+{% endblock %}  

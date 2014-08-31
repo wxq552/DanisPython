@@ -1,0 +1,349 @@
+{% extends "base.html" %}  
+      
+{% block content %}  
+        <div id="banner">
+            <SCRIPT type=text/javascript>flashWrite('/static/images/banner.swf','960','258','banner','','','transparent')</SCRIPT>
+        <div class="main_wrapper">
+            <div class="sidebar">
+                <!--box1-->
+                <div class="sidebar_box">
+                    <h2 class="tit1">
+                        <div class="more">
+                            <a href="about.aspx">更多</a></div>
+                    </h2>
+                    {% load imgurl %}
+                    <div class="sidebar_box_list">
+                        <p class="tc">
+                        	{% if intro.thumb %}
+                            <img src="/static/site/small/{{intro.thumb.path|imgurl}}" width="205" height="59"></p>
+                            {% endif %}
+                        <p>
+                            
+
+	      {{intro.content}}...<a class="green"style="color: orange" href="{% url comapp.views1.aboutdta intro.id %}" title="公司简介">[详情]</a></p>
+                    </div>
+                    <div class="box_b">                    </div>
+                </div>
+                <!--box2-->
+                <div class="sidebar_box">
+                    <h2 class="tit2">
+                        <div class="more">
+                            <a href="product.aspx">更多</a></div>
+                    </h2>
+                    <div class="sidebar_box_list">
+                        <ul>     
+                        	
+                        	
+                        	        {% for series in product_series %}
+                                                <div>
+                                        <li><a href='{% url comapp.views2.products series.id %}'  title=" {{series.name}}">
+                                           {{series.name}}</a></li>
+                                    </div>                         
+                                    {% endfor %}
+                            
+                                  
+                                
+                                
+                        </ul>
+                    </div>
+                    <div class="box_b">                    </div>
+                </div>
+                <!--box3-->
+                <div class="sidebar_box">
+                    <h2 class="tit3">
+                        <div class="more">
+                            <a href="industry.aspx">更多</a></div>
+                    </h2>
+                    <div class="sidebar_box_list">
+                        <p class="fl">
+                            <img src="/static/images/pic.jpg" width="90" height="75"></p>
+                        <p>
+                            
+	&nbsp;
+
+	公司1986年从粮油贸易业务起步，历经了二十余年的蓬勃发展，现已成为一家跨领域的综合型多元化企业集团。业务涵盖了粮油生产加...<a class="green" href="industry.aspx" title="产业介绍">[详情]</a></p>
+                    </div>
+                    <div class="box_b">                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <!--news-->
+                <div class="main_box news_1">
+                    <div id="con_news">
+                        <ul id="tags_news">
+                            <div class="more">
+                                <a href="{% url comapp.views1.getnews %}" id="">more+</a></div>
+                            <li class="selectTag_news"><a onmouseover="selectTag_news('tag_news0',this)" href="javascript:void(0)">公司新闻</a> </li>
+                            <li>
+                            	<a onmouseover="selectTag_news('tag_news1',this)" href="javascript:void(0)">行业新闻</a> </li>
+                            </li>
+                        </ul>
+                        <div id="tag_news">
+                            <div class="tag_news selectTag_news wenti" id="tag_news0">
+                                <div class="top_news">
+                                    <div class="top_pic">
+                                        <a href="{% url comapp.views1.getdetail firstcompany.id %}">
+                                        	{% load imgurl %}
+                                        	{% if firstcompany.thumb %}
+                                            <img src="/static/site/small/{{firstcompany.thumb.path|imgurl}}" width="90" height="75" title="{{firstcompany.title}}">
+                                            {% endif %}
+                                        </a></div>
+                                    <div class="top_info">
+                                        <h1><a href="{% url comapp.views1.getdetail firstcompany.id %}" title="{{firstcompany.title}}">{{firstcompany.title}}</a></h1>
+                                        <p>
+                                            
+	&nbsp;
+
+	                              {{firstcompany.content|slice:"30" }}...<a class="yellow" style="color: orange"  href="{% url comapp.views1.getdetail firstcompany.id %}">[详细]</a></p>
+                                  </div>
+                                </div>
+                                <ul>
+                                    
+                                            {% for news in news_company %}
+                                                <li><span>
+                                                {{ news.post_time }}</span>
+                                                <a href='{% url comapp.views1.getdetail news.id %}' title="{{news.title}}">{{news.title}}</a>
+                                                </li>                                  
+                                            {% endfor %}
+                                                                          
+                                </ul>
+                            </div>
+                            <div class="tag_news wenti" id="tag_news1">
+                                <div class="top_news">
+                                    <div class="top_pic">
+                                        <a href="{% url comapp.views1.getdetail firstjob.id %}">
+                                        	{% load imgurl %}
+                                        	{% if firstcompany.thumb %}
+                                            <img src="/static/site/small/{{firstjob.thumb.path|imgurl}}" width="90" height="75" title="大豆进口激增500万吨,国内产量或减一成">
+                                            {% endif %}
+                                            </a></div>
+                                            
+                                    <div class="top_info">
+                                        <h1>
+                                            <a href="{% url comapp.views1.getdetail firstjob.id %}"  title="{{firstjob.title}}">{{firstjob.title}}</a></h1>
+                                        <p>
+                                             
+	 {{firstjob.content|slice:"30" }}...<a class="yellow" href="{% url comapp.views1.getdetail firstjob.id %}" style="color: orange">[详细]</a></p>
+                                    </div>
+                                </div>
+                                <ul>
+                                	 {% for jobs in news_job %}
+                                                <li><span>
+                                                {{ jobs.post_time }}</span>
+                                                <a href='{% url comapp.views1.getdetail firstjob.id %}' title="{{news.title}}">{{jobs.title}}</a>
+                                                </li>                                  
+                                            {% endfor %}
+                                    
+                                       
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function selectTag_news(showContent, selfObj) {
+                            // 操作标签
+                            var tag = document.getElementById("tags_news").getElementsByTagName("li");
+                            var taglength = tag.length;
+                            for (i = 0; i < taglength; i++) {
+                                tag[i].className = "";
+                            }
+                            selfObj.parentNode.className = "selectTag_news";
+                            // 操作内容
+                            for (i = 0; j = document.getElementById("tag_news" + i); i++) {
+                                j.style.display = "none";
+                            }
+                            document.getElementById(showContent).style.display = "block";
+
+                            if (document.getElementById("tag_news0").style.display == "block") {
+                                document.getElementById("newslink").href = "companyinfo.aspx";
+                            } else if (document.getElementById("tag_news1").style.display == "block") {
+                                document.getElementById("newslink").href = "industrynews.aspx";
+                            } 
+                        }
+                    </script>
+                </div>
+                <!--box_link-->
+                <div class="main_box quick_link">
+                    <ul>
+                        <li><a class="l1" href="about.aspx?id=5" title="组织机构">组织架构</a></li>
+                        <li><a class="l2" href="about.aspx?id=6" title="经营范围">经营范围</a></li>
+                        <li><a class="l3" href="about.aspx?id=7" title="企业文化">企业文化</a></li>
+                        <li><a class="l4" href="about.aspx?id=8" title="荣誉资质">荣誉资质</a></li>
+                    </ul>
+                </div>
+                <!--product-->
+                <div class="main_box box_por">
+                    <div class="tit4">
+                        <div class="more">
+                            <a href="{% url comapp.views2.products %}">more+</a></div>
+                    </div>
+                    <div id="MarqueeDiv7">
+                        <ul id="CSSContent">
+                        	       {% for product in product_list %}
+                        	            <li><a class="pro_img" href="{% url comapp.views2.products product.productseries.id %}">
+                        	            	
+                                        <img src="/static/site/small/{{product.thumb.path|imgurl}}" width="139" height="140" title="{{product.name}}"></a><span><a
+                                            href="{% url comapp.views2.products product.productseries.id %}">{{product.name}}</a></span></li>
+                        	       {% endfor %}
+                            
+                                  
+                        </ul>
+                    </div>
+                    <script type="text/javascript">
+new Marquee(
+{
+	MSClass	  : ["MarqueeDiv7","CSSContent"],
+	Direction : 2,
+	Step	  : 0.3,
+	Width	  : 700,
+	Height	  : 180,
+	Timer	  : 20,
+	DelayTime : 3000,
+	WaitTime  : 0,
+	ScrollStep: 174,
+	SwitchType: 0,
+	AutoStart : true
+});
+</script>
+                </div>
+                <!--期盘-->
+               
+                <div class="main_box news_2">
+                    <div id="con_qipan">
+                        <ul id="tags_qipan">
+                            <div class="more">
+                                <a id="amore" href="{% url comapp.views1.getnews 'qihuo' %}">more+</a></div>
+                            <li class="selectTag_qipan"><a onmouseover="selectTag_qipan('tag_qipan0',this)" href="javascript:void(0)">
+                                外盘期货</a> </li>
+                            <!--<li><a onmouseover="selectTag_qipan('tag_qipan1',this)" href="javascript:void(0)">媒体播报</a>
+                            </li>-->
+                        </ul>
+                        <div id="tag_qipan">
+                            <div class="tag_qipan selectTag_qipan wenti" id="tag_qipan0">
+                                <ul>
+                                              {% for qihuo in news_qihuo %}
+                                                <li><span>
+                                                {{ qihuo.post_time }}</span>
+                                                <a href='{% url comapp.views1.getdetail qihuo.id %}' title="{{qihuo.title}}">{{qihuo.title}}</a>
+                                                </li>                                  
+                                            {% endfor %}
+                                                                           
+                                </ul>
+                            </div>
+                            <!--<div class="tag_qipan wenti" id="tag_qipan1">
+                                <ul>
+                                    
+                                </ul>
+                            </div>-->
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function selectTag_qipan(showContent, selfObj) {
+                            // 操作标签
+                            var tag = document.getElementById("tags_qipan").getElementsByTagName("li");
+                            var taglength = tag.length;
+                            for (i = 0; i < taglength; i++) {
+                                tag[i].className = "";
+ 
+                            }
+                            selfObj.parentNode.className = "selectTag_qipan";
+
+                            // 操作内容
+                            for (i = 0; j = document.getElementById("tag_qipan" + i); i++) {
+                                j.style.display = "none";
+                            }
+                            document.getElementById(showContent).style.display = "block";
+
+                            if (document.getElementById("tag_qipan0").style.display == "block") {
+                                document.getElementById("amore").href = "futures.aspx?id=33";
+                            } else if (document.getElementById("tag_qipan1").style.display == "block") {
+                                document.getElementById("amore").href = "medium.aspx?id=29";
+                            } 
+
+                        }
+                    </script>
+                </div>
+                <!--yuangong-->
+                <div class="main_box news_3">
+                    <div id="con_yuangong">
+                        <ul id="tags_yuangong">
+                            <div class="more">
+                                <a id="amore1" href="{% url comapp.views1.getinfo 'staff' %}">more+</a></div>
+                            <li class="selectTag_yuangong"><a onmouseover="selectTag_yuangong('tag_yuangong0',this)"
+                                href="javascript:void(0)">员工天地</a> </li>
+                            <li><a onmouseover="selectTag_yuangong('tag_yuangong1',this)" href="javascript:void(0)">
+                                食用油知识</a> </li>
+                        </ul>
+                        <div id="tag_yuangong">
+                            <div class="tag_yuangong selectTag_yuangong wenti" id="tag_yuangong0">
+                                <ul>
+                                    
+                                    
+                                           {% for staff in staff_list %}
+                                                <li>
+                                                	<span>{{ staff.post_time }}</span>
+                                                    <a href='{% url comapp.views1.getdetail staff.id %}' title="{{ staff.title }}">
+                                                    	{{ staff.title }}
+                                                    </a>
+                                                </li>
+                                           {% endfor %}
+                                    
+                                           
+                                        
+                                </ul>
+                            </div>
+                            <div class="tag_yuangong wenti" id="tag_yuangong1">
+                                <ul>
+                                        
+                                           {% for knowledge in knowledge_list %}
+                                           <li>
+                                           	<span>{{ knowledge.post_time }}</span>
+                                                <a href='{% url comapp.views1.getdetail knowledge.id %}' title="{{ knowledge.title }}">
+                                                	
+                                                	{{knowledge.title}}
+                                                
+                                                </a></li>
+                                           {% endfor %}
+                                        
+                                            
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        function selectTag_yuangong(showContent, selfObj) {
+                            // 操作标签
+                            var tag = document.getElementById("tags_yuangong").getElementsByTagName("li");
+                            var taglength = tag.length;
+                            for (i = 0; i < taglength; i++) {
+                                tag[i].className = "";
+                            }
+                            selfObj.parentNode.className = "selectTag_yuangong";
+                            // 操作内容
+                            for (i = 0; j = document.getElementById("tag_yuangong" + i); i++) {
+                                j.style.display = "none";
+                            }
+                            document.getElementById(showContent).style.display = "block";
+
+                            if (document.getElementById("tag_yuangong0").style.display == "block") {
+                                document.getElementById("amore1").href = "empinfo.aspx";
+                            } else if (document.getElementById("tag_yuangong1").style.display == "block") {
+                                document.getElementById("amore1").href = "knowledge.aspx";
+                            } 
+
+                        }
+                    </script>
+                </div>
+            </div>
+            <!--友情连接-->
+            <div id="flink">
+                <div class="link_tag">
+                    <a href="#">粮油市场报</a> | <a href="#">中华粮油商务网</a> | <a href="#">邦成粮油在线</a> | <a href="#">
+                        中国粮油信息网</a></div>
+            </div>
+        </div>
+    </div>
+   
+    
+{% endblock %}  

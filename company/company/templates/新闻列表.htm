@@ -1,0 +1,98 @@
+{% extends "base.html" %}  
+      
+{% block content %}  
+        <div id="subbanner">
+            <img src="/static/site/nav_imgs/1111281148289.jpg" width="960" height="180"></div>
+        <div class="main_wrapper">
+            <div class="sidebar">
+                <!--box1-->
+                <div class="sidebar_box">
+                    <h2 class="tit">
+                        新闻动态</h2>
+                    <div class="sidebar_box_list">
+                        <ul>
+                            
+                                    <li><a href="{% url comapp.views1.getnews 'company' %}" id="rptypeNews_ctl00_aname"><span>
+                                        公司新闻</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getnews 'job' %}" id="rptypeNews_ctl01_aname"><span>
+                                        行业新闻</span></a></li>
+                                
+                                    <li><a href="{% url comapp.views1.getnews 'qihuo' %}" id="rptypeNews_ctl02_aname"><span>
+                                        外盘期货</span></a></li>
+                                
+                        </ul>
+                    </div>
+                    <div class="box_b">
+                    </div>
+                </div>
+            </div>
+            <div class="main_content">
+                <!--right-->
+                <div class="sub_content">
+                    <h3>
+                        <div class="loc">
+                            <a href="{% url comapp.views.index %}">首页</a>><a href="{% url comapp.views1.getnews %}">新闻动态</a>><a class="green" href="{% url comapp.views1.getnews newstype %}">{{title}}</a></div>
+                        {{title}}</h3>
+                    <div class="content">
+                        <ul class="sub_newslist1">
+                                 {% load imgurl %}
+                                 {% for news in news_list%}
+                        
+                                      <li>
+                                      	
+                                <a href="{% url comapp.views1.getdetail news.id %}">
+                                	
+                                    {% if news.thumb %}	
+                                	<img src="/static/site/small/{{news.thumb.path|imgurl}}"  title="{{news.title}}"/>
+                                	{% endif %}
+                                	 
+                                </a><h2>
+                                    <a href="{% url comapp.views1.getdetail news.id %}" title="{{news.title}}">{{news.title}}</a></h2>
+                                <p>
+                                    <a href="{% url comapp.views1.getdetail news.id %}" title="{{news.title}}" style="color: orange">
+                                                {{news.content|slice:"30"}}...                                    	
+                                    	
+                                    </a></p>
+                                      </li>
+                                    
+                                 {% endfor %}
+                             
+                              
+                                
+                                  
+                                
+                        </ul>
+                        <ul class="sub_newslist2">
+                        	
+                        	       {% for news1 in list_items.object_list %}
+                                       <li>
+                                        <h2>
+                                            <a href='{% url comapp.views1.getdetail news1.id %}' title="{{news1.title}}">
+                                                {{news1.title}}</a><span>{{news1.post_time}}</span></h2>
+                                        <p>
+                                           {{news1.content|slice:"30"}}<a href='{% url comapp.views1.getdetail news1.id %}' title="年年丰集团2013年迎春晚宴" class="more">Read
+                                                More》</a></p>
+                                    </li>
+                                   {% endfor %}
+                                   
+                                
+                                
+                        </ul> 
+                        <div class="clear">
+                        </div>
+                        <div id="divpages" class="pageList">&nbsp;<a class="disabled" href="{% url comapp.views1.getnews newstype,1 %}">首页</a>
+                        	{% if list_items.has_previous %}  
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views1.getnews newstype,list_items.previous_page_number %}">上一页</a>
+                        	{% endif %}
+                        	<span class="current">  
+                            第{{ list_items.number }}页，共{{ list_items.paginator.num_pages }}页  
+                            </span> 
+                        	{% if list_items.has_next %}  
+                        	<a class="disabled" style='cursor:pointer;' href="{% url comapp.views1.getnews newstype,list_items.next_page_number %}">下一页</a>
+                        	{% endif %}
+                        	<a class="disabled" href="{% url comapp.views1.getnews newstype,list_items.paginator.num_pages %}">尾页</a>&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}  

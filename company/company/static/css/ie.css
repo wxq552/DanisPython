@@ -1,0 +1,130 @@
+/*******************************************************************************
+
+*******************************************************************************/
+/*.ie6 #news_box,.ie7 #news_box,.ie8 #news_box{ background:#ECECEC;position:relative;box-shadow:0px 0px 10px #D0D0D0;z-index:2;behavior: url(ie-css3.htc);}*/
+.ie6 .fb-body,.ie7 .fb-body,.ie8 .fb-body{}
+.ie6 #sub_content .sub_top,.ie7 #sub_content .sub_top,.ie8 #sub_content .sub_top{ background:url(../images/sub_top.gif) center top no-repeat;}
+.ie6 #sub_content .sub_c,.ie7 #sub_content .sub_c,.ie8 #sub_content .sub_c{ background:url(../images/sub_c.gif) center top repeat-y; padding:0px 20px;}
+.ie6 #sub_content .sub_btom,.ie7 #sub_content .sub_btom,.ie8 #sub_content .sub_btom{ background:url(../images/sub_btom.gif) center top no-repeat;}
+#sub_content .sub_c .sub_content .h2_m{ padding-top:7px;}
+.ie6 .porudct_list .list,.ie7 .porudct_list .list,.ie8 .porudct_list .list{ background:url(../images/pro_box_t.gif) 0 0 no-repeat; border:0px; width:685px; height:217px; padding:0px;}
+.ie6 .sub_content_box,.ie7 .sub_content_box,.ie8 .sub_content_box{ padding:0px;}
+.ie6 .product,.ie7 .product,.ie8 .product{ padding:0px !important;}
+.ie6 .porudct_list,.ie7 .porudct_list,.ie8 .porudct_list{ padding:0px;}
+.ie6 .porudct_list .pic,.ie7 .porudct_list .pic,.ie8 .porudct_list .pic{ padding-top:45px;}
+.ie6 .porudct_list .pro_info,.ie7 .porudct_list .pro_info,.ie8 .porudct_list .pro_info{ padding-top:25px; left:20px !important;}
+#feiji{ padding-left:90px;}
+.ie6 #siteinfo{ height:125px;}
+.ie6 #weibo{position:absolute; top:0px; right:0px;}
+.ie6 #sub_content,.ie7 #sub_content,.ie8 #sub_content { width:990px !important;}
+.ie6 #siteinfo,.ie7 #siteinfo,.ie8 #siteinfo{ margin-left:10px;}
+.pro_list_box .pro_info dt p{left:36px; top:0px;}
+.web_defo{left:35px; top:0px;}
+.ie6 .product .pro_list_box ul li{ float:left;}
+.ie6 .page a,.ie7 .page a,.ie8 .page a{padding: 5px 10px 0px 8px !important;}
+.ie6 .page .home a,.ie7 .page .home a,.ie8 .page .home a{ background-position:3px 2px; padding:4px 12px 0px !important;}
+.ie6 .page .next a,.ie7 .page .next a,.ie8 .page .next a{ background-position:-43px 2px; padding:4px 8px 0px !important;}
+.ie6 .lv a {background-position:-99px 2px;color: #EC4100;}
+.ie6 .product .imglist,.ie7 .product .imglist{ padding-top:4px;}
+/* 2. COMMON
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+
+/* 2.4 Site Navigation
+------------------------------------------------------------------------------*/
+
+.ie7-8 #sitenav > ul > li.hasdropdown ul {
+	box-shadow: #999 0 2px 5px;
+}
+
+#sitenav > ul > li > ul li a {
+	padding: 9px 49px 9px 14px !important;
+}
+
+
+/* 3. PAGES
+--------------------------------------------------------------------------------
+==============================================================================*/
+
+
+/* 3.1 Products - Landing page
+------------------------------------------------------------------------------*/
+
+.ie7-8 #tracker {
+	border-bottom: 9px solid transparent;
+	overflow: visible;
+	height: 1%;
+}
+
+.ie7-8 #tracker aside,
+.ie7-8 #tracker div {
+	margin-bottom: -9px;
+}
+
+.ie7-8 #tracker section {
+	position: relative;
+	top: 9px;
+}
+
+.ie7-8 #tracker section {
+	border-radius: 0 0 9px 9px;
+	behavior: url(/js/lib/css3pie/pie.htc);
+}
+
+
+/* 3.2 Products - Overview
+------------------------------------------------------------------------------*/
+
+.ie8 #major .jcarousel-container .jcarousel-clip .jcarousel-list .jcarousel-item[jcarouselindex="4"] ~ .jcarousel-item .wrapper {
+	position: relative;
+	left: 1px;
+}
+
+
+/* 3.3 Products - Features
+------------------------------------------------------------------------------*/
+
+.ie7-8 #activity aside {
+	box-shadow: none;
+}
+
+.ie7-8 #prog ul {
+	box-shadow: #ddd 0 1px 10px;
+}
+
+.ie8 #prog     ul .wrapper,
+.ie8 #wearable ul .wrapper {
+	overflow: hidden;
+}
+
+.ie8 #prog     ul .wrapper { height: 270px }
+.ie8 #wearable ul .wrapper { height: 229px }
+
+.ie8 #prog     ul li .acitem,
+.ie8 #wearable ul li .acitem {
+	position: relative;
+	top: -8px;
+	margin: 0;
+	height: 60px;
+}
+
+
+/* 3.5 Products - Raves
+------------------------------------------------------------------------------*/
+
+.ie7-8 #media #mediaacc {
+	background: #eaeaea url(../images/products/raves/ie7-8_bg_mediaacc.png) no-repeat;
+}
+
+.ie7-8 #media #mediaacc .wrapper {
+	background: url(../images/products/raves/ie7-8_bg_mediaacc.png) no-repeat -480px 100%;
+}
+
+.boxgrid {
+  background:#000;
+  filter:Alpha(opacity=60);
+}
+.boxgrid h1 {
+  position:relative;
+}
