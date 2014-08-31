@@ -1,0 +1,185 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--[if IE 7 ]>
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie6">
+<![endif]-->
+<!--[if IE 7 ]>
+        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie7">
+<![endif]-->
+<!--[if IE 8 ]>
+            <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js ie8">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]>
+                <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-js">
+<![endif]-->
+<head>
+	<title>
+	MyWeiBo
+	</title>
+	<meta name="Keywords" content="深圳年年丰粮油有限公司" /><meta name="Description" content="MyWeiBo" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="keywords" content="keywords" />
+<style type="text/css">
+.source a{
+	text-decoration: none;
+	color: #666;
+}
+.banner{width: 100%;height: 50px;background:#000;position: fixed;z-index: 20; filter:alpha(opacity=80);  
+      -moz-opacity:0.8;  
+      -khtml-opacity: 0.8;  
+      opacity: 0.8; }
+#post_weibo textarea{
+	width: 650px;
+	height:100px;
+	border: 1px solid #dadada;
+}
+#post_weibo p{
+	display:inline-block;
+	margin-bottom: -10px;
+}
+</style>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+</head>  
+<body class="fb-body"style="background: url('/static/image/589160.jpg') repeat-y fixed;margin: 0;padding: 0" >
+<div class="banner">
+　　　<div style="width: 80%;height:50px;margin: 0 auto;margin-top: -20px;">
+	  <table cellpadding="0" cellspacing="0" width="100%" style="margin-top: 0;">
+	  	
+	  	<tr>
+	  		
+	  		<td width="75%"></td>
+	  		
+	  		<td width="25%">
+	  			<div style="margin-top: 25px;">
+	  				<a href="#" style="text-decoration: none;color: #fff;margin-right: 10px;">{{nickname}}</a>
+	  			    <a href="/logout/?access_token={{access_token}}" style="color: #fff;text-decoration: none;">退出</a>
+	  		   </div>
+	  		</td>
+	  	</tr>
+	  	
+	  </table>
+    </div>
+</div>	
+  
+  <div style="margin-left: 22%;background: #fff; width: 680px;padding-left: 15px;position: absolute;margin-top: 65px;">
+    <div style="height: 20px;">
+ 
+    </div> 	
+  	<!--发表微博表单 -->
+	<div style="width: 650px;margin-bottom: 20px;">
+		<form method="post" action="/post_weibo/" enctype="multipart/form-data" id="post_weibo">
+			{{form.as_p}}
+			<p style="float: right"><input type="submit" value="发布" /></p>
+		</form>
+		
+	</div>
+    
+    <!--加载微博列表 -->
+    <div>
+    	
+    	{% for home in home_list %}
+    	
+    	
+    	 <table width="650" style="border-bottom:1px solid #ccc;padding-top: 10px; padding-bottom: 10px; ">
+    	 	<tr>
+    	 		
+    	 		<td style="vertical-align: top;">
+    	 			<img src = "{{home.user.profile_image_url}}" />
+    	 		</td>
+    	 		<td>
+    	 			
+    	 			<table>
+    	 				<tr><td style="color: #000;font-weight: bolder"><a href="#" style="text-decoration: none;color: grey;">{{home.user.screen_name}}</a></td></tr>
+    	 				<tr><td>{{home.text}}</td></tr>
+    	 				<tr>
+    	 				   <td>
+    	 				   	 
+		    	 				   	{% for url in home.pic_urls %}
+		    	 					<a href="javascript:void(0);"><img id = "pic" src = "{{url.thumbnail_pic}}" /></a>
+		    	 				    {% endfor %}
+    	 				      
+    	 				  
+            	 	       </td>
+            	 	    </tr>
+            	 	    <!--转发微博信息 -->
+            	 	    {% if home.retweeted_status %}
+            	 	    
+            	 	    <tr>
+            	 	    	<td>
+            	 	    	      
+            	 	    	 <table style="margin-left: 15px;background: #eee;width: 580px;border:solid 1px #dadada;">
+            	 	    	 	
+            	 	    	 	<tr><td><a href="" style="color: #666; font-size: 12px; font-weight: bolder;text-decoration: none;">@{{home.retweeted_status.user.screen_name}}</a></td></tr>
+            	 	    	 	<tr><td style="font-size: 12px;color: #666;">{{home.retweeted_status.text}}</td></tr>
+            	 	    	 	
+            	 	    	 	<tr>
+		    	 				   <td>
+		    	 				   	{% for url in home.retweeted_status.pic_urls %}
+		    	 					<a href="javascript:void(0);"><img src = "{{url.thumbnail_pic}}"/></a>
+		    	 				    {% endfor %}
+		            	 	       </td>
+            	 	             </tr>
+            	 	    	 	
+            	 	    	 	<tr style="margin-top: 15px;">
+            	 	    	 		<td style="color: #666;font-size: 12px;">
+            	 	    	 			<div style="width: 350px;float: left;">
+				    	 					<span>{{home.retweeted_status.created_at}}</span>
+				    	 					<span class="source">来自{{home.retweeted_status.source|safe}}</span>
+			    	 					</div>
+			    	 					<div style="float: left;width: 180px;text-align: right;">
+				    	 					<span class="source"><a href="#">转发({{home.retweeted_status.reposts_count}})</a></span>|
+				    	 					<span class="source"><a href="#">评论({{home.retweeted_status.comments_count}})</a></span>
+	    	 					        </div>
+    	 				            </td>
+    	 				        </tr>
+    	 				        <tr><td></td></tr>
+            	 	    	 	
+            	 	    	 </table>
+            	 	    	 
+            	 	        </td>
+            	 	    </tr>
+            	 	    {% endif %}
+    	 				<tr><td style="color: #666;font-size: 14px;">
+    	 					<div style="margin-top: 5px;">
+    	 						
+	    	 					<div style="width: 400px;float: left;">
+	    	 					  <span>{{home.created_at}}</span>
+	    	 					  <span class="source">来自{{home.source|safe}}</span>
+	    	 					</div>
+	    	 					<div style="float: left;width: 180px;text-align: right;">
+	    	 					<span class="source"><a class="zfclass" href="javascript:void(0);" type="{{home.id}}">转发({{home.reposts_count}})</a></span>|
+	    	 					<span class="source"><a class="comments" href="javascript:void();" type="{{home.id}}">评论({{home.comments_count}})</a></span>
+	    	 					</div>
+    	 				   </div>
+    	 				</td></tr>
+    	 				<tr  id="zf_{{home.id}}" style="display: none;"><td colspan="2"><textarea style="width: 560px;height: 80px;"></textarea><input class="btn" type="button" value="转发" alt="{{home.id}}" /></td></tr>
+    	 				 <!--评论列表 -->
+    	 				<tr>
+    	 					<td>
+    	 					   <table id="tb_{{home.id}}" style="width: 590px;font-size:12px; height: auto;border: 1px solid #DADADA;display: none;">
+    	 						  
+    	 					   </table>
+    	 					</td>
+    	 				</tr> 
+    	 	
+    	 			</table>
+    	 		</td>
+    	 		  
+    	 	</tr>
+    	 	  
+    	 	
+    	   </table>
+    	{% endfor %}
+    	
+    	
+    	 <table width="650">
+    	 	
+    	 	<tr><td align="center"><a href="/getweibo/{{page|add:-1}}/">上一页</a>&nbsp;<a href="/getweibo/{{page|add:1}}/">下一页</a></td></tr>
+    	 	
+    	 </table>
+    </div>
+    
+</div>   
+</body>
+</html>
