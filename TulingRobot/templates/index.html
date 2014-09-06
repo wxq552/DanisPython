@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8" />
+		<title>我的图灵机器人</title>
+		<script type="text/javascript" src="{{static_url("js/jquery-1.10.2.min.js")}}"></script>
+		<script type="text/javascript" src="{{static_url("js/main.js")}}">	</script>
+	</head>
+	<body bg="{{static_url('image/g.jpg')}}">
+		<div style="margin:0 auto;width: 830px;height: auto;">
+		<div style="width:830px;height: 40px;line-height:40px;background: lightslategray;text-align: center;border-radius: 5px;border: 1px solid #000;color: #fff;">我的智能机器人</div>
+		<div style="width: 800px;height: auto;border:1px solid #dadada;overflow:scroll;background: #EEE;padding: 15px;min-height: 500px;" id="main">
+			
+			<div style="width:100%;height: auto;padding:5px; text-align: left;">
+			<span style="width:300px;display:inline-block;background: green;border-radius: 8px;border: 1px solid #dadada;padding:10px;">
+					{{section}}
+				</span>
+			</div>
+		</div>
+		<div style="width: 830px;">
+			<input type="text" name="question" style="width: 750px;" id="question"/><input type="button" id="btn" value="提交" />
+		</div>
+		</div>
+	</body>
+</html>
