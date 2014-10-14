@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Burt's Books – Book Detail</title>
+        <script src="{{ static_url('scripts/jquery-1.8.0.min.js') }}"
+            type="text/javascript"></script>
+        <script src="{{ static_url('scripts/inventory.js') }}"
+            type="application/javascript"></script>
+    </head>
+
+    <body>
+        <div>
+           <h1>长轮询实现的消息推送</h1>
+        </div>
+
+        <input type="hidden" id="session" value="{{ session }}" />  
+        
+        <div style="width:400px;height: auto;border:1px solid #dadada;padding: 5px;" id="message_list">
+        	{% for msg in messages %}
+        	  <div>
+        	  	<h4>{{msg['title']}}</h4>
+        	  	<div>{{msg['content']}}</div>
+        	  </div>
+        	{% end %}
+        </div>
+    </body>
+</html>
